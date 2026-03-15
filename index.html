@@ -3,286 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vladimír Holan — Web analytik · Automatizace · AI</title>
+  <title>Vladimír Holan — Automatizace · AI · Web Analytics</title>
   <meta name="description" content="Pomáhám malým firmám a živnostníkům pracovat chytřeji — s daty, automatizací a moderními nástroji." />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg: #0f0f11;
-      --bg2: #18181c;
-      --border: #2a2a32;
-      --text: #e8e8ec;
-      --muted: #8888a0;
-      --accent: #7c6dfa;
-      --accent2: #a78bfa;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      font-size: 1rem;
-      line-height: 1.7;
-    }
-
-    /* NAV */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(15, 15, 17, 0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 56px;
-    }
-
-    .nav-logo {
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--text); }
-
-    /* LAYOUT */
-    .container {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    section {
-      padding: 5rem 0;
-    }
-
-    section + section {
-      border-top: 1px solid var(--border);
-    }
-
-    /* HERO */
-    #hero {
-      padding: 7rem 0 5rem;
-      text-align: left;
-    }
-
-    .hero-tag {
-      display: inline-block;
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent2);
-      background: rgba(124, 109, 250, 0.1);
-      border: 1px solid rgba(124, 109, 250, 0.25);
-      border-radius: 999px;
-      padding: 0.25rem 0.8rem;
-      margin-bottom: 1.5rem;
-    }
-
-    h1 {
-      font-size: clamp(2.2rem, 6vw, 3.5rem);
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      margin-bottom: 0.75rem;
-    }
-
-    .hero-subtitle {
-      font-size: 1rem;
-      color: var(--muted);
-      letter-spacing: 0.05em;
-      margin-bottom: 2rem;
-    }
-
-    .hero-tagline {
-      font-size: 1.2rem;
-      color: var(--text);
-      max-width: 520px;
-      line-height: 1.6;
-    }
-
-    .hero-tagline strong {
-      color: var(--accent2);
-    }
-
-    /* ABOUT */
-    h2 {
-      font-size: 1.6rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.25rem;
-    }
-
-    p { color: var(--muted); margin-bottom: 1rem; }
-    p:last-child { margin-bottom: 0; }
-
-    /* SERVICES */
-    .services-grid {
-      display: grid;
-      gap: 1.25rem;
-      margin-top: 2rem;
-    }
-
-    .card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.75rem;
-      transition: border-color 0.2s;
-    }
-
-    .card:hover { border-color: var(--accent); }
-
-    .card-icon {
-      font-size: 1.5rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .card h3 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      margin-bottom: 0.5rem;
-      color: var(--text);
-    }
-
-    .card p { font-size: 0.95rem; margin-bottom: 0.75rem; }
-
-    .card ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
-
-    .card ul li {
-      font-size: 0.88rem;
-      color: var(--muted);
-      padding-left: 1rem;
-      position: relative;
-    }
-
-    .card ul li::before {
-      content: '–';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-    }
-
-    /* AUTOMATION EXAMPLES */
-    .examples {
-      margin: 1rem 0 1.25rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-    }
-
-    .example-item {
-      background: rgba(124, 109, 250, 0.06);
-      border: 1px solid rgba(124, 109, 250, 0.15);
-      border-radius: 8px;
-      padding: 0.65rem 1rem;
-      font-size: 0.88rem;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    .result-box {
-      margin-top: 1rem;
-      padding: 0.75rem 1rem;
-      background: rgba(124, 109, 250, 0.08);
-      border-left: 3px solid var(--accent);
-      border-radius: 0 8px 8px 0;
-      font-size: 0.9rem;
-      color: var(--text);
-    }
-
-    .note-no-jargon {
-      margin-top: 1rem;
-      font-size: 0.85rem;
-      color: var(--muted);
-      font-style: italic;
-    }
-
-    /* CONTACT */
-    #contact { text-align: center; }
-    #contact h2 { margin-bottom: 0.75rem; }
-    #contact p { max-width: 420px; margin: 0 auto 2rem; }
-
-    .email-link {
-      display: inline-block;
-      background: var(--accent);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 0.75rem 2rem;
-      border-radius: 8px;
-      transition: opacity 0.2s;
-    }
-
-    .email-link:hover { opacity: 0.85; }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem 1.5rem;
-      text-align: center;
-      font-size: 0.82rem;
-      color: var(--muted);
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 500px) {
-      .nav-links { display: none; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <nav>
-    <a href="#hero" class="nav-logo">VH</a>
-    <ul class="nav-links">
-      <li><a href="#o-mne">O mně</a></li>
-      <li><a href="#sluzby">Služby</a></li>
-      <li><a href="#contact">Kontakt</a></li>
-    </ul>
-  </nav>
+  <!-- TOP AREA: gradient background shared by nav + hero -->
+  <div class="top-bg">
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="container">
-      <div class="hero-tag">Automatizace · AI · DATA</div>
-      <h1>Vladimír Holan</h1>
-      <p class="hero-tagline">
-        Pomáhám firmám i jednotlivcům pracovat chytřeji, rychleji, s menším úsilím a s nižšími náklady.<br>
-        S využitím moderních nástrojů, automatizace, dat a AI.
-      </p>
-    </div>
-  </section>
+    <nav>
+      <div class="nav-inner">
+        <a href="#hero" class="nav-logo">holan.eu</a>
+        <ul class="nav-links">
+          <li><a href="#o-mne">O mně</a></li>
+          <li><a href="#sluzby">Služby</a></li>
+          <li><a href="#contact">Kontakt</a></li>
+        </ul>
+        <button class="hamburger" aria-label="Otevřít menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="container">
+        <div class="hero-tag">Automatizace · AI · Data</div>
+        <h1 class="hero-heading">
+          <span class="hero-line-dark">Technologie,</span>
+          <span class="hero-line-accent">které pracují za vás.</span>
+        </h1>
+        <p class="hero-sub">
+          Pomáhám firmám pracovat chytřeji, rychleji a s nižšími náklady.<br>
+          S využitím automatizace, dat a AI — bez zbytečné složitosti.
+        </p>
+        <a href="#contact" class="hero-cta">Napište mi</a>
+      </div>
+    </section>
+
+  </div><!-- /.top-bg -->
 
   <!-- O MNĚ -->
-  <section id="o-mne">
+  <section id="o-mne" class="bg-alt">
     <div class="container">
       <h2>O mně</h2>
       <p>Pracuji v IT přes 10 let. Aktuálně jako Web Analytics a GTM expert v mezinárodní firmě, kde spravuji analytické implementace pro více než 50 trhů po celém světě.</p>
@@ -294,6 +59,7 @@
   <section id="sluzby">
     <div class="container">
       <h2>Služby</h2>
+      <p class="section-lead">Tři oblasti, ve kterých mohu vaší firmě konkrétně pomoci.</p>
       <div class="services-grid">
 
         <!-- Automatizace -->
@@ -341,10 +107,10 @@
   </section>
 
   <!-- KONTAKT -->
-  <section id="contact">
+  <section id="contact" class="bg-alt">
     <div class="container">
       <h2>Kontakt</h2>
-      <p>Napište mi — rád se pobavím o tom, co potřebujete.</p>
+      <p class="section-lead">Napište mi — rád se pobavím o tom, co potřebujete.</p>
       <a class="email-link" href="mailto:vladimir@holan.eu">vladimir@holan.eu</a>
     </div>
   </section>
@@ -355,5 +121,17 @@
     </div>
   </footer>
 
+  <!-- Mobile drawer -->
+  <div class="drawer-overlay"></div>
+  <div class="mobile-drawer">
+    <button class="drawer-close" aria-label="Zavřít menu">×</button>
+    <ul class="drawer-links">
+      <li><a href="#o-mne">O mně</a></li>
+      <li><a href="#sluzby">Služby</a></li>
+      <li><a href="#contact">Kontakt</a></li>
+    </ul>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
