@@ -45,6 +45,5 @@ CSS variables defined in `:root` — always use them, never hardcode colors:
 - `--bg` / `--bg2` — page backgrounds
 - `--border` — borders
 - `--text` / `--muted` — text colors
-- `--accent` / `--accent2` — purple accent colors
-
-Dark theme only. Layout max-width: 760px centered via `.container`.
+- `--accent` / `--accent2` — teal accent colors (`#0a7c68` / `#0ea58a`)
+- `--cta` / `--cta-hover` — salmon CTA button colors
