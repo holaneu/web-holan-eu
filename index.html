@@ -166,7 +166,23 @@
     <div class="container">
       <h2>Kontakt</h2>
       <p class="section-lead">Napište nám — rádi se pobavíme o tom, co potřebujete.</p>
-      <a class="email-link" href="mailto:vladimir@holan.eu">vladimir@holan.eu</a>
+      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY">
+        <input type="checkbox" name="botcheck" style="display:none">
+        <div class="form-group">
+          <label for="email">E-mail <span class="required">*</span></label>
+          <input type="email" id="email" name="email" required placeholder="vas@email.cz">
+        </div>
+        <div class="form-group">
+          <label for="phone">Telefon <span class="optional">(nepovinné)</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="+420 ...">
+        </div>
+        <div class="form-group">
+          <label for="message">Zpráva <span class="optional">(nepovinné)</span></label>
+          <textarea id="message" name="message" rows="4" placeholder="Popište ve zkratce, s čím vám můžeme pomoci..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Odeslat</button>
+      </form>
     </div>
   </section>
 
