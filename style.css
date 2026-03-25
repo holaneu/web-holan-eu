@@ -386,41 +386,75 @@ p:last-child {
 }
 
 /* ===================================================
-   AUTOMATION EXAMPLES
+   AUTOMATION EXAMPLES SECTION
    =================================================== */
 
-.examples {
-  margin: 1rem 0 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
+.examples-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
 }
 
-.example-item {
-  background: rgba(10, 124, 104, 0.05);
-  border: 1px solid rgba(10, 124, 104, 0.12);
-  border-radius: 8px;
-  padding: 0.65rem 1rem;
-  font-size: 0.88rem;
+.example-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.75rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.example-card:hover {
+  border-color: var(--accent2);
+  box-shadow: var(--shadow);
+}
+
+.example-card-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.example-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+  text-align: left;
+}
+
+.example-card p {
+  font-size: 0.9rem;
   color: var(--muted);
   line-height: 1.55;
 }
 
-.result-box {
-  margin-top: 1rem;
-  padding: 0.8rem 1rem;
-  background: rgba(10, 124, 104, 0.06);
-  border-left: 3px solid var(--accent);
-  border-radius: 0 8px 8px 0;
+.card-link {
+  display: inline-block;
+  margin-top: 0.75rem;
   font-size: 0.9rem;
-  color: var(--text);
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  transition: opacity 0.2s;
 }
 
-.note-no-jargon {
-  margin-top: 1rem;
-  font-size: 0.85rem;
+.card-link:hover {
+  opacity: 0.75;
+}
+
+.examples-cta-text {
+  text-align: center;
+  margin-top: 2.5rem;
+  font-size: 1rem;
   color: var(--muted);
-  font-style: italic;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.examples-cta-text a {
+  color: var(--accent);
+  font-weight: 600;
 }
 
 /* ===================================================
@@ -473,9 +507,13 @@ footer {
    RESPONSIVE
    =================================================== */
 
-/* Tablet: 2-column services */
+/* Tablet: 2-column services and examples */
 @media (max-width: 900px) {
   .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .examples-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -495,6 +533,10 @@ footer {
   }
 
   .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .examples-grid {
     grid-template-columns: 1fr;
   }
 
