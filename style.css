@@ -40,7 +40,7 @@ body {
    =================================================== */
 
 .top-bg {
-  background: linear-gradient(to bottom, var(--primary-light) 0%, var(--primary) 100%);
+  background: linear-gradient(to bottom, var(--primary) 0%, var(--primary-light) 100%);
 }
 
 /* ===================================================
@@ -51,7 +51,7 @@ nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: transparent;
+  background: var(--primary);
   transition: background 0.3s ease, box-shadow 0.3s ease;
   height: 64px;
 }
