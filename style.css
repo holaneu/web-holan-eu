@@ -19,6 +19,8 @@
   --muted: #64748b;
   --accent: #0a7c68;
   --accent2: #0ea58a;
+  --cta: #E8735A;
+  --cta-hover: #D4654E;
   --shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05);
   --shadow-nav: 0 2px 8px rgba(0, 0, 0, 0.10);
 }
@@ -271,7 +273,7 @@ section.bg-alt {
 
 .hero-cta {
   display: inline-block;
-  background: var(--accent);
+  background: var(--cta);
   color: #fff;
   text-decoration: none;
   font-weight: 700;
@@ -292,18 +294,22 @@ section.bg-alt {
    =================================================== */
 
 h2 {
-  font-size: 1.9rem;
+  font-size: 2.25rem;
   font-weight: 800;
   letter-spacing: -0.03em;
   margin-bottom: 1rem;
   color: var(--text);
+  text-align: center;
 }
 
 .section-lead {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   color: var(--muted);
   max-width: 620px;
   margin-bottom: 2.5rem;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 p {
@@ -436,7 +442,7 @@ p:last-child {
 
 .email-link {
   display: inline-block;
-  background: var(--accent);
+  background: var(--cta);
   color: #fff;
   text-decoration: none;
   font-weight: 700;
@@ -485,7 +491,7 @@ footer {
   }
 
   h2 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
 
   .services-grid {
